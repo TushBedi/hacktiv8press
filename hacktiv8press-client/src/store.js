@@ -26,7 +26,7 @@ export default new Vuex.Store({
   actions: {
     getLogin ({ commit }, payload) {
       axios
-        .post('http://localhost:8081/login', payload)
+        .post('http://hacktiv8press-blog.tushbedi.biz/login', payload)
         .then(({ data }) => {
           if (data.token) {
             commit('isLoggedIn', true)
@@ -52,7 +52,7 @@ export default new Vuex.Store({
     },
     getRegister ({ commit }, payload) {
       axios
-        .post('http://localhost:8081/register', payload)
+        .post('http://hacktiv8press-blog.tushbedi.biz/register', payload)
         .then(({ data }) => {
           if (data.token) {
             commit('isLoggedIn', true)
@@ -95,7 +95,7 @@ export default new Vuex.Store({
       let token = localStorage.getItem('token')
       let config = { headers: { token } }
       axios
-        .get('http://localhost:8081/article', config)
+        .get('http://hacktiv8press-blog.tushbedi.biz/article', config)
         .then(({ data }) => {
           commit('articles', data.articles)
         })
@@ -111,7 +111,7 @@ export default new Vuex.Store({
       let token = localStorage.getItem('token')
       let config = { headers: { token } }
       axios
-        .get(`http://localhost:8081/article/${payload}`, config)
+        .get(`http://hacktiv8press-blog.tushbedi.biz/article/${payload}`, config)
         .then(({ data }) => {
           commit('articles', data.article)
         })
@@ -127,7 +127,7 @@ export default new Vuex.Store({
       let token = localStorage.getItem('token')
       let config = { headers: { token } }
       axios
-        .post('http://localhost:8081/article', payload, config)
+        .post('http://hacktiv8press-blog.tushbedi.biz/article', payload, config)
         .then(({ data }) => {
           if (data.body) {
             swal({
@@ -151,7 +151,7 @@ export default new Vuex.Store({
       let token = localStorage.getItem('token')
       let config = { headers: { token } }
       axios
-        .put(`http://localhost:8081/article/${payload.id}`, payload, config)
+        .put(`http://hacktiv8press-blog.tushbedi.biz/article/${payload.id}`, payload, config)
         .then(({ data }) => {
           context.dispatch('getArticles')
           swal({
@@ -181,7 +181,7 @@ export default new Vuex.Store({
         .then((willDelete) => {
           if (willDelete) {
             axios
-              .delete(`http://localhost:8081/article/${payload}`, config)
+              .delete(`http://hacktiv8press-blog.tushbedi.biz/article/${payload}`, config)
               .then(({ data }) => {
                 if (data.body) {
                   swal({
