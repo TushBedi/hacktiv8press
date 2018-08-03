@@ -13,8 +13,7 @@ let articleSchema = new Schema(
     },
     author: {
       type: Schema.Types.ObjectId,
-      ref: "users",
-      required: [true, "Author is required"]
+      ref: "users"
     },
     category: {
       type: String,
