@@ -5,10 +5,10 @@ const imagesHelper = require("../helpers/images");
 
 router.get("/", articleController.getArticles);
 router.get("/:articleId", articleController.getOneArticle);
-// router.post("/",
-// imagesHelper.multer.single('image'),
-// imagesHelper.sendUploadToGCS,
-// articleController.addArticle);
+router.post("/",
+imagesHelper.multer.single('image'),
+imagesHelper.sendUploadToGCS,
+articleController.addArticle);
 router.put("/:articleId", articleController.updateArticle);
 router.delete("/:articleId", articleController.deleteArticle);
 

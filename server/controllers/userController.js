@@ -33,6 +33,7 @@ module.exports = {
             res.status(201).json({
               msg: "Successfully register new user",
               token,
+              newUser,
               username
             });
           })
